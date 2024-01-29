@@ -1,3 +1,8 @@
+# DB configuration - for mergebase defender demo
+
+Need to update the H2 DB file path (SALESMANAGER-TEST2.mv.db) in the src/main/resources/database.properties before deployment
+
+
 # Shopizer 3.X (for java 1.8 +) (tested with Java 11)
 
 
