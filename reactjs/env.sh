@@ -4,11 +4,11 @@
 java -jar /opt/app/shopizer.jar &
 
 # Recreate config file
-rm -rf ./env-config.js
-touch ./env-config.js
+rm -rf $1/env-config.js
+touch $1/env-config.js
 
 # Add assignment 
-echo "window._env_ = {" >> ./env-config.js
+echo "window._env_ = {" >> $1/env-config.js
 
 # Read each line in .env file
 # Each line represents key=value pairs
@@ -26,9 +26,8 @@ do
   [[ -z $value ]] && value=${varvalue}
   
   # Append configuration property to JS file
-  echo "  $varname: \"$value\"," >> ./env-config.js
-done < .env
+  echo "  $varname: \"$value\"," >> $1/env-config.js
+done < $1/.env
 
-echo "}" >> ./env-config.js
-
+echo "}" >> $1/env-config.js
 nginx -g "daemon off;"

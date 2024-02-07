@@ -50,4 +50,4 @@ RUN chmod +x /opt/app/shopizer.jar
 EXPOSE 80 8080  
 
 # Start Nginx server
-CMD ["/bin/bash", "-c", "/usr/share/nginx/html/env.sh"]
+CMD ["/bin/bash", "-c", "/usr/share/nginx/html/env.sh /usr/share/nginx/html"]
