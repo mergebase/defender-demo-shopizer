@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# run jar first and not block the rest steps
-java -jar /opt/app/shopizer.jar &
-
 # Recreate config file
 rm -rf $1/env-config.js
 touch $1/env-config.js
