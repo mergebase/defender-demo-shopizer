@@ -73,13 +73,17 @@ public class ReferencesApi {
    */
   @GetMapping("/country")
   public List<ReadableCountry> getCountry(@ApiIgnore Language language, HttpServletRequest request) {
-    MerchantStore merchantStore = storeFacade.getByCode(request);
+      final String header = request.getHeader("X-API-Version");
+      LOGGER.info("API HEADER: " + header);
+      MerchantStore merchantStore = storeFacade.getByCode(request);
     return countryFacade.getListCountryZones(language, merchantStore);
   }
 
   @GetMapping("/zones")
   public List<ReadableZone> getZones(
       @RequestParam("code") String code, @ApiIgnore Language language, HttpServletRequest request) {
+      final String header = request.getHeader("X-API-Version");
+      LOGGER.info("API HEADER: " + header);
     MerchantStore merchantStore = storeFacade.getByCode(request);
     return zoneFacade.getZones(code, language, merchantStore);
   }
